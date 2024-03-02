@@ -23,7 +23,7 @@ const Header = () => {
             to={'/about'}
             className='text-[#fff] transition hover:text-[#66ccff] hover:shadow-lg'
           >
-            About
+            Sobre
           </Link>
           <Link
             to={'/portfolio'}
@@ -35,7 +35,7 @@ const Header = () => {
             to={'/contact'}
             className='text-[#fff] transition hover:text-[#66ccff] hover:shadow-lg'
           >
-            Contact
+            Contactos
           </Link>
         </nav>
       </div>

@@ -10,7 +10,7 @@ const Home = () => {
 
           <div className='w-full pt-36 pb-14 lg:pt-0 lg:pb-0 lg:w-auto z-10 lg:absolute flex flex-col justify-center items-center lg:items-start'>
             <h1 className='h1 text-indigo-50'>
-              P4-Nkosi <br /> Photograph <br /> A-firma<br />
+              P4-Nkosi <br /> Fotografias <br /> A-firma<br />
             </h1>
 
 
@@ -18,7 +18,7 @@ const Home = () => {
               Luanda, Angola
             </p>
             <Link to='/contact' className='btn mb-[30px]  text-indigo-50'>
-              hire me
+              Agende aqui
             </Link>
           </div>
 
