@@ -48,6 +48,7 @@ const Portfolio = () => {
     { url: image19, alt: 'Image 19', description: 'Descrição da imagem 19' },
     { url: image20, alt: 'Image 20', description: 'Descrição da imagem 20' },
   ];
+
   const settings = {
     dots: true,
     infinite: true,
