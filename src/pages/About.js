@@ -23,7 +23,7 @@ const About = () => {
             </p>
           </div>
           <div className=' flex flex-col lg:items-center justify-center mb-1'>
-            <Link to={'/portfolio'} className='btn'>Visite-nos</Link>
+            <Link to={'/portfolio'} className='btn'>Conheça-nos</Link>
           </div>
         </div>
       </div>
