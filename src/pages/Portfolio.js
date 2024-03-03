@@ -26,34 +26,36 @@ import image19 from '../img/portfolio/mari.png';
 import image20 from '../img/portfolio/namoo.png';
 
 const Portfolio = () => {
-  const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15, image16, image17, image18, image19, image20];
+  const images = [
+    image1, image2, image3, image4, image5,
+    image6, image7, image8, image9, image10,
+    image11, image12, image13, image14, image15,
+    image16, image17, image18, image19, image20
+  ];
 
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
         },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
         },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
         },
       },
     ],
@@ -79,7 +81,7 @@ const Portfolio = () => {
               <Slider {...settings}>
                 {images.map((image, index) => (
                   <div key={index} className='mx-auto max-w-[250px] lg:max-w-[320px] bg-accent overflow-hidden'>
-                    <img className='object-cover w-full h-[187px] lg:h-[220px] hover:scale-110 transition-all duration-500 ' src={image} alt={`Image ${index + 1}`} />
+                    <img className='object-cover w-full h-[187px] lg:h-[220px] hover:scale-110 transition-all duration-500' src={image} alt={`Image ${index + 1}`} />
                   </div>
                 ))}
               </Slider>
