@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
+import { fadeIn } from '../variants';
 import image1 from '../img/portfolio/m42.png';
 import image2 from '../img/portfolio/mariano.jpg';
 import image3 from '../img/portfolio/p4.png';
@@ -92,25 +92,31 @@ const Portfolio = () => {
     <section className='section h-screen overflow-y-auto'>
       <div className='container mx-auto h-full'>
         <div className='text-center lg:text-left pt-24 lg:pt-36 pb-8'>
-          <h1 className='text-3xl lg:text-4xl font-bold mb-4'>Portfolio</h1>
+          <h1 className='h1 text-3xl lg:text-4xl font-bold mb-6'>Portfolio</h1>
           <p className='max-w-lg mx-auto lg:mx-0 mb-8'>
             Na <b>P4-Nkosi Fotografias</b>, não apenas tiramos fotos, mas também criamos experiências.
             Desde o primeiro contato até a entrega final do produto, nossa equipe está dedicada a superar suas expectativas.
           </p>
-          <Slider {...settings}>
-            {images.map((image, index) => (
-              <div key={index} className='bg-gray-200 p-4 rounded-lg'>
-                <motion.img
-                  className='object-cover w-full h-64 mb-4 cursor-pointer'
-                  src={image.url}
-                  alt={image.alt}
-                  onClick={() => setCurrentImageIndex(index)}
-                  whileHover={{ scale: 1.1 }}
-                />
-              </div>
-            ))}
-          </Slider>
-
+          <motion.div
+            variants={fadeIn('up', 0.5)}
+            initial='hidden'
+            whileInView={'show'}
+            viewport={{ once: false, amount: 0.7 }}
+          >
+            <Slider {...settings}>
+              {images.map((image, index) => (
+                <div key={index} className='bg-gray-200 p-4 rounded-lg mb-6'>
+                  <motion.img
+                    className='object-cover w-full h-64 mb-4 cursor-pointer'
+                    src={image.url}
+                    alt={image.alt}
+                    onClick={() => setCurrentImageIndex(index)}
+                    whileHover={{ scale: 1.1 }}
+                  />
+                </div>
+              ))}
+            </Slider>
+          </motion.div>
           <div className='w-full relative'>
             <button onClick={prevImage} className='absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full'>
               &lt;
@@ -118,7 +124,7 @@ const Portfolio = () => {
             <button onClick={nextImage} className='absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full'>
               &gt;
             </button>
-            <div className='w-full h-full lg:h-[70vh]'>
+            <div className='w-full h-full lg:h-[85vh]'>
               <motion.img
                 className='object-cover w-full h-full transition-all duration-500'
                 src={images[currentImageIndex].url}
