@@ -2,13 +2,20 @@ import React from 'react';
 import Socials from './Socials';
 import Logo from '../img/header/logo.png';
 import MobileNav from './MobileNav';
+import { fadeIn } from '../variants';
+import { motion } from 'framer-motion';
 
 import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <header className=' fixed w-full px-[30px] lg:px-[100px] z-30 h-[100px] lg:h-[140px] flex items-center'>
-      <div className='flex flex-col lg:flex-row lg:items-center w-full justify-between'>
+      <motion.div
+        variants={fadeIn('up', 0.3)}
+        initial='hidden'
+        whileInView={'show'}
+        viewport={{ once: false, amount: 0.7 }}
+        className='flex flex-col lg:flex-row lg:items-center w-full justify-between'>
         <Link to={'/'} className='max-w-[200px]'>
           <img src={Logo} alt='' />
         </Link>
@@ -38,7 +45,7 @@ const Header = () => {
             Contactos
           </Link>
         </nav>
-      </div>
+      </motion.div>
       <Socials />
       <MobileNav />
     </header>

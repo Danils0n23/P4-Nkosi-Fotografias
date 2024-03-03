@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -96,9 +95,12 @@ const Portfolio = () => {
           <p className='max-w-lg mx-auto lg:mx-0 mb-8'>
             Na <b>P4-Nkosi Fotografias</b>, não apenas tiramos fotos, mas também criamos experiências.
             Desde o primeiro contato até a entrega final do produto, nossa equipe está dedicada a superar suas expectativas.
+            <br />
+            <br />
+            <p><b>Clique numa imsgem e role para baixo para melhor visualização</b></p>
           </p>
           <motion.div
-            variants={fadeIn('up', 0.5)}
+            variants={fadeIn('up', 0.2)}
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: false, amount: 0.7 }}
@@ -117,11 +119,16 @@ const Portfolio = () => {
               ))}
             </Slider>
           </motion.div>
-          <div className='w-full relative'>
-            <button onClick={prevImage} className='absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full'>
+          <motion.div
+            variants={fadeIn('up', 0.3)}
+            initial='hidden'
+            whileInView={'show'}
+            viewport={{ once: false, amount: 0.7 }}
+            className='w-full relative'>
+            <button onClick={prevImage} className='btn absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full'>
               &lt;
             </button>
-            <button onClick={nextImage} className='absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full'>
+            <button onClick={nextImage} className=' btn absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full'>
               &gt;
             </button>
             <div className='w-full h-full lg:h-[85vh]'>
@@ -135,7 +142,7 @@ const Portfolio = () => {
                 transition={{ duration: 0.5 }}
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
