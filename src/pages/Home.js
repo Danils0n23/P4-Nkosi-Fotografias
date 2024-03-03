@@ -3,6 +3,7 @@ import BenguiImg from '../img/home/3.png';
 import { Link } from 'react-router-dom';
 import { fadeIn } from '../variants';
 import { motion } from 'framer-motion';
+import { transition1 } from '../transitions';
 
 const Home = () => {
   return (
@@ -40,9 +41,17 @@ const Home = () => {
             whileInView={'show'}
             viewport={{ once: false, amount: 0.7 }}
             className='flex justify-end max-h-96 lg:max-h-max'>
-            <div className='relative lg:-right-40 overflow-hidden'>
-              <img src={BenguiImg} alt='Bengui' />
-            </div>
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0 }}
+              transition={transition1}
+              className='relative lg:-right-40 overflow-hidden'>
+              <motion.img
+                whileHover={{ scale: 1.1 }}
+                transition={transition1}
+                src={BenguiImg} alt='Bengui' />
+            </motion.div>
           </motion.div>
 
         </div>

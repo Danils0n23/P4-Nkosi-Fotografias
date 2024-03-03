@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -48,7 +48,6 @@ const Portfolio = () => {
     { url: image19, alt: 'Image 19', description: 'Descrição da imagem 19' },
     { url: image20, alt: 'Image 20', description: 'Descrição da imagem 20' },
   ];
-
   const settings = {
     dots: true,
     infinite: true,
@@ -78,6 +77,7 @@ const Portfolio = () => {
   };
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const targetDivRef = useRef(null);
 
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
@@ -85,6 +85,10 @@ const Portfolio = () => {
 
   const prevImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+  };
+
+  const handleImageClick = () => {
+    targetDivRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -97,7 +101,7 @@ const Portfolio = () => {
             Desde o primeiro contato até a entrega final do produto, nossa equipe está dedicada a superar suas expectativas.
             <br />
             <br />
-            <p><b>Clique numa imsgem e role para baixo para melhor visualização</b></p>
+            <p><b>Clique numa imagem e role para baixo para melhor visualização</b></p>
           </p>
           <motion.div
             variants={fadeIn('up', 0.2)}
@@ -107,7 +111,7 @@ const Portfolio = () => {
           >
             <Slider {...settings}>
               {images.map((image, index) => (
-                <div key={index} className='bg-gray-200 p-4 rounded-lg mb-6'>
+                <div key={index} className='bg-gray-200 p-4 rounded-lg mb-6' onClick={handleImageClick}>
                   <motion.img
                     className='object-cover w-full h-64 mb-4 cursor-pointer'
                     src={image.url}
@@ -131,7 +135,7 @@ const Portfolio = () => {
             <button onClick={nextImage} className=' btn absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full'>
               &gt;
             </button>
-            <div className='w-full h-full lg:h-[85vh]'>
+            <div ref={targetDivRef} className='w-full h-full lg:h-[85vh]'>
               <motion.img
                 className='object-cover w-full h-full transition-all duration-500'
                 src={images[currentImageIndex].url}
@@ -147,5 +151,6 @@ const Portfolio = () => {
       </div>
     </section>
   );
-}
+};
+
 export default Portfolio;

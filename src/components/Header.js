@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <header className=' fixed w-full px-[30px] lg:px-[100px] z-30 h-[100px] lg:h-[140px] flex items-center'>
+    <header className='fixed w-full px-[30px] lg:px-[100px] z-30 h-[100px] lg:h-[140px] flex items-center'>
       <motion.div
         variants={fadeIn('up', 0.3)}
         initial='hidden'
